@@ -7,7 +7,7 @@ $events = 'notification_events.csv'
 $loadSql = Join-Path $env:TEMP ('notify-load-' + [guid]::NewGuid().ToString('N') + '.sql')
 @"
 \set ON_ERROR_STOP on
-\copy notify.notification_partition_inventory FROM '$inventory' WITH (FORMAT csv,HEADER true)
+\copy notify.notification_partition_inventory FROM '$inventory' WITH (FORMAT csv,HEADER true,FORCE_NOT_NULL(old_index_name))
 \copy notify.notification_tenant_monthly_capacity FROM '$capacity' WITH (FORMAT csv,HEADER true)
 SELECT format('CREATE TABLE notify.%I PARTITION OF notify.notification_events FOR VALUES FROM (%L) TO (%L);',partition_name,month_start,month_end) FROM notify.notification_partition_inventory ORDER BY month_start \gexec
 CREATE TABLE notify.notification_events_default PARTITION OF notify.notification_events DEFAULT;
