@@ -1,4 +1,4 @@
-name: BuildBusinessPackage
+name: WindowsPostgreSQLBusinessCheck
 
 on:
   workflow_dispatch:
@@ -7,9 +7,9 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  check:
     runs-on: windows-2025
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: StartPostgreSQL
@@ -18,19 +18,14 @@ jobs:
           Set-Service -Name postgresql-x64-17 -StartupType Manual
           Start-Service postgresql-x64-17
           $env:PGBIN | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      - name: BuildPackage
+      - name: CheckBusinessPackage
         shell: pwsh
         env:
           PGPASSWORD: root
-        run: ./verification/bootstrap.ps1
-      - name: PackageBusinessOutput
-        shell: pwsh
-        run: Compress-Archive -Path reference-build\output -DestinationPath reference.zip
+        run: ./verification/windows_gate.ps1
       - uses: actions/upload-artifact@v4
         with:
-          name: business-package
-          path: |
-            reference.zip
-            evidence/bootstrap.json
+          name: windows-postgresql-evidence
+          path: evidence/*.json
           if-no-files-found: error
           retention-days: 1
