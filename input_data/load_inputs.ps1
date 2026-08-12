@@ -1,12 +1,9 @@
 $ErrorActionPreference = 'Stop'
 if (-not $env:NOTIFY_DATABASE_URL) { throw 'NOTIFY_DATABASE_URL未设置' }
 $root = $PSScriptRoot
-& psql.exe $env:NOTIFY_DATABASE_URL -X -v ON_ERROR_STOP=1 -f (Join-Path $root 'database/schema.sql')
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
-$inventory = (Join-Path $root 'partition_inventory.csv').Replace('\','/')
-$capacity = (Join-Path $root 'tenant_monthly_capacity.csv').Replace('\','/')
-$events = (Join-Path $root 'notification_events.csv').Replace('\','/')
+$inventory = 'partition_inventory.csv'
+$capacity = 'tenant_monthly_capacity.csv'
+$events = 'notification_events.csv'
 $loadSql = Join-Path $env:TEMP ('notify-load-' + [guid]::NewGuid().ToString('N') + '.sql')
 @"
 \set ON_ERROR_STOP on
@@ -23,9 +20,13 @@ CREATE INDEX notification_events_2026_04_delivery_old_idx ON notify.notification
 CREATE INDEX notification_events_2026_05_delivery_old_idx ON notify.notification_events_2026_05 (tenant_id,sent_at DESC) WHERE delivery_state='sent';
 CREATE INDEX notification_events_2026_06_delivery_old_idx ON notify.notification_events_2026_06 (sent_at DESC,tenant_id) WHERE delivery_state IN ('sent','failed');
 "@ | Set-Content -LiteralPath $loadSql -Encoding utf8
+Push-Location -LiteralPath $root
 try {
+  & psql.exe $env:NOTIFY_DATABASE_URL -X -v ON_ERROR_STOP=1 -f 'database/schema.sql'
+  if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
   & psql.exe $env:NOTIFY_DATABASE_URL -X -v ON_ERROR_STOP=1 -f $loadSql
   if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 } finally {
+  Pop-Location
   Remove-Item -LiteralPath $loadSql -Force -ErrorAction SilentlyContinue
 }
