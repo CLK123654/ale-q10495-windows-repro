@@ -1,0 +1,8 @@
+partition_name,month_start,month_end,reported_rows,reported_failed_rows,old_index_name
+notification_events_2026_01,2026-01-01,2026-02-01,110000,2800,
+notification_events_2026_02,2026-02-01,2026-03-01,118000,3100,
+notification_events_2026_03,2026-03-01,2026-04-01,132000,3500,
+notification_events_2026_04,2026-04-01,2026-05-01,125000,2900,notification_events_2026_04_delivery_old_idx
+notification_events_2026_05,2026-05-01,2026-06-01,128000,3300,notification_events_2026_05_delivery_old_idx
+notification_events_2026_06,2026-06-01,2026-07-01,131000,3400,notification_events_2026_06_delivery_old_idx
+notification_events_2026_07,2026-07-01,2026-08-01,136000,3400,

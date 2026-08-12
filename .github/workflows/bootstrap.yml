@@ -1,0 +1,36 @@
+name: BuildBusinessPackage
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2025
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: StartPostgreSQL
+        shell: pwsh
+        run: |
+          Set-Service -Name postgresql-x64-17 -StartupType Manual
+          Start-Service postgresql-x64-17
+          $env:PGBIN | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: BuildPackage
+        shell: pwsh
+        env:
+          PGPASSWORD: root
+        run: ./verification/bootstrap.ps1
+      - name: PackageBusinessOutput
+        shell: pwsh
+        run: Compress-Archive -Path reference-build\output -DestinationPath reference.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: business-package
+          path: |
+            reference.zip
+            evidence/bootstrap.json
+          if-no-files-found: error
+          retention-days: 1

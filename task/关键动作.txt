@@ -1,0 +1,8 @@
+阅读README、保留策略、分区库存、租户容量和事件样本，核对日期、状态与容量口径。
+运行load_inputs.ps1并用psql的\copy载入三份CSV，建立月分区、默认分区和库存对象。
+查询pg_inherits和默认分区，按策略边界生成分区脱离与回挂语句。
+逐条提交DETACH PARTITION CONCURRENTLY，登记归档位置并核对最终父子关系。
+从策略列定义、状态范围、输入库存和当前catalog推导活动分区索引切换方案。
+执行CREATE INDEX CONCURRENTLY，建立ONLY父索引并附着活动月及默认分区索引。
+确认新索引闭合后执行DROP INDEX CONCURRENTLY，并保留旧索引故障与处置记录。
+从输入快照、归档登记和系统catalog导出分区计划、索引交接、租户保留审计与变更交接记录。

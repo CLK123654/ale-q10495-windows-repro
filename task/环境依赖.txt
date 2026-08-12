@@ -1,0 +1,5 @@
+操作系统： Windows11。
+
+主软件使用PostgreSQL Client17.x或18.x的psql.exe连接同主版本的本机PostgreSQL服务，完成\copy、分区DDL、并发索引、父子索引附着以及pg_class、pg_namespace、pg_inherits、pg_index和pg_indexes查询。PowerShell7负责读取策略、组织路径、调用psql并写出查询结果。
+
+处理期间只访问回环地址上的专用数据库。数据库账号需要重建notify schema、建表、装载数据、修改分区和创建索引的权限。输入与输出目录可以包含中文和空格，执行账号应能读取输入包并写入同级output。CPU和内存满足当前输入规模的并发建索引与catalog查询即可；磁盘需能容纳解压材料、数据库临时对象和五项交付；本题不使用GPU。入口采用有限超时覆盖当前批次，避免数据库等待无期限占用变更窗口。

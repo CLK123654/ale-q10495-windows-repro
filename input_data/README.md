@@ -1,0 +1,7 @@
+# 通知分区切换交接
+
+本目录保存通知事件分区维护的脱敏材料。retention_policy.json给出变更窗口、保留边界、索引合同与归档位置规则。partition_inventory.csv是容量平台冻结的分区库存，tenant_monthly_capacity.csv用于租户审计，notification_events.csv只提供少量事件以观察真实分区路由。
+
+在允许重建notify schema的专用PostgreSQL17.x或18.x数据库中设置NOTIFY_DATABASE_URL。运行PowerShell脚本process.ps1后，脚本会调用load_inputs.ps1，并让psql使用\copy原生载入三份CSV，再执行starter/repair_notification_partitions.sql。随后，reports目录下的查询会形成分区行动计划、索引交接清单、租户保留审计和变更交接记录。output建立在input_data同级目录。
+
+reported_rows和reported_failed_rows是容量控制量，不是CSV样本行数。处理期间不访问通知平台或外部服务。

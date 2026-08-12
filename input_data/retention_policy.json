@@ -1,0 +1,16 @@
+{
+  "policy_version": "notification-retention-v4",
+  "change_window": {
+    "starts_at": "2026-07-31T23:00:00Z",
+    "ends_at": "2026-07-31T23:30:00Z",
+    "write_handling": "queue_buffer"
+  },
+  "run_date": "2026-07-31",
+  "detach_before": "2026-04-01",
+  "retain_to_exclusive": "2026-08-01",
+  "archive_bucket_prefix": "notify-archive/2026",
+  "lock_timeout_ms": 3000,
+  "statement_timeout_ms": 900000,
+  "index_columns": ["tenant_id", "sent_at DESC"],
+  "index_states": ["sent", "failed"]
+}

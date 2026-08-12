@@ -1,0 +1,10 @@
+1.使用psql.exe执行database/schema.sql，建立notification_events月分区、默认分区和本题库存表。
+2.运行load_inputs.ps1，以\copy分别载入partition_inventory.csv、tenant_monthly_capacity.csv和notification_events.csv，并核对每次COPY返回的记录数。
+3.把retention_policy.json中的日期、归档前缀、等待预算、索引列和状态范围写入retention_policy_runtime。
+4.查询pg_inherits与默认分区实际行数，生成默认分区临时脱离、过期月并发脱离和默认分区回挂语句。
+5.逐条用psql提交DETACH PARTITION CONCURRENTLY，并将输入库存对应的归档路径与容量写入notification_archive_manifest。
+6.根据策略日期筛选活动分区，通过CREATE INDEX CONCURRENTLY创建活动月及默认分区部分索引。
+7.在ONLY notification_events上创建父索引，使用ALTER INDEX ATTACH PARTITION连接全部活动子索引。
+8.查询pg_index、pg_get_indexdef、pg_get_expr和pg_inherits复核键序、降序位、谓词、有效性及附着关系。
+9.新索引全部有效并附着后，根据partition_inventory.csv和pg_indexes识别旧索引，再逐条执行DROP INDEX CONCURRENTLY。
+10.从输入表、归档登记和catalog导出分区行动计划、索引交接清单、租户保留审计及变更交接记录，并核对共享汇总字段。
