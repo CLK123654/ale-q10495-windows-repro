@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "result": "PASS",
+  "review_method": "人工逐链路语义审查，静态分数只作补充证据",
+  "real_role_and_consumers": {
+    "role": "通知平台数据可靠性团队",
+    "consumers": [
+      "容量值班根据分区行动计划安排归档",
+      "DBA根据索引交接清单确认新索引接管",
+      "合规人员根据租户保留审计复核容量边界",
+      "变更负责人根据交接记录决定是否结束观察期"
+    ],
+    "economic_value": "在变更窗口内完成历史分区收缩和活动索引接管，控制存储成本并保留合规追溯链"
+  },
+  "consumed_inputs": [
+    {"input":"retention_policy.json","use":"提供保留边界、变更窗口、等待预算、归档规则和索引定义"},
+    {"input":"partition_inventory.csv","use":"提供月分区边界、容量和旧索引身份"},
+    {"input":"tenant_monthly_capacity.csv","use":"按策略边界计算租户归档与保留容量"},
+    {"input":"notification_events.csv","use":"经psql原生载入并观察事件分区路由"},
+    {"input":"database/schema.sql","use":"建立月分区、默认分区和库存表结构"}
+  ],
+  "continuous_work_chain": [
+    "用psql的copy原生载入业务输入并落库运行策略",
+    "把策略与分区库存连接，根据系统catalog确定待归档对象",
+    "保护默认分区，逐月并发脱离过期分区并写入归档登记",
+    "在活动分区和默认分区上并发创建新索引，建立父索引并附着子索引",
+    "新索引链完整后处置旧索引，再从当前数据库查询导出四项业务交付"
+  ],
+  "main_software_necessity": "PostgreSQL Client必须通过psql与真实PostgreSQL服务交互，以copy、分区DDL、并发索引DDL和catalog查询获得数据库实际状态。纯文本推断无法产生可交接的父子索引与分区状态。",
+  "hard_number_sources": [
+    "保留日期、变更窗口、锁等待预算、索引列和状态范围均来自retention_policy.json",
+    "分区数、分区月份、分区容量和旧索引身份来自partition_inventory.csv",
+    "租户月容量和失败量来自tenant_monthly_capacity.csv",
+    "实际父子关系、索引定义和有效性来自PostgreSQL catalog"
+  ],
+  "reference_and_reasoning": {
+    "ambiguous_citations": [],
+    "fabricated_sources": [],
+    "unsupported_numbers": [],
+    "reasoning_breaks": [],
+    "unreasonable_tasks": [],
+    "answer_leakage": [],
+    "score_conflicts": []
+  },
+  "closure": {
+    "prompt_to_delivery": "PASS",
+    "delivery_to_score": "PASS",
+    "score_to_five_sheet_answer": "PASS",
+    "answer_to_reference": "PASS",
+    "input_to_reference": "PASS"
+  },
+  "online_ai_detector_used_as_conclusion": false
+}

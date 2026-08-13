@@ -1,0 +1,25 @@
+{
+  "schema_version": 2,
+  "result": "PASS",
+  "change_class": "candidate_text_and_specification_text_only",
+  "windows_rerun_required": false,
+  "reason": "业务数据、规则、代码、附件成员结构、Reference、关键标准答案和评分语义未改；本轮只修正数据来源表述、规范评分层级名称，并用真实业务模块替换规格中的模板行。",
+  "workbook": "任务规格转化.xlsx",
+  "workbook_sha256": "83249c0ec77c3bc8ff56aeffe9e05dd9380ce665b0959e8ddb5705824c3ffeea",
+  "task_id": "notification_partition_retention_index_handover",
+  "column_count": 2,
+  "row_count": 19,
+  "forbidden_template_rows": [],
+  "semantic_review": {
+    "输入来源": "保留策略、分区库存、租户月容量、通知事件和数据库结构均与输入包成员对应",
+    "业务目标": "在低峰窗口收缩过期分区并让新部分索引接管活动分区",
+    "交付要求": "完成SQL、分区计划、索引交接、租户审计和变更记录与Prompt一致",
+    "软件步骤": "psql原生载入、catalog查询、并发分区与索引操作、数据库查询导出形成连续链路",
+    "实现边界": "策略与库存提供规则，当前PostgreSQL catalog提供实际状态，操作限于回环地址上的专用数据库",
+    "下游消费": "分区计划、索引清单、租户审计和变更记录分别对应容量值班、DBA、合规人员和变更负责人"
+  },
+  "field_collage_count": 0,
+  "authoring_process_language_count": 0,
+  "ai_template_language_count": 0,
+  "visual_review": "PASS"
+}

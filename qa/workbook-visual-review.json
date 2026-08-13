@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "tool": "artifact-tool",
+  "files": {
+    "关键标准答案.xlsx": {
+      "sheet_count": 5,
+      "sheets": [
+        "交付物答案清单",
+        "固定字段答案",
+        "固定集合答案",
+        "固定数值答案",
+        "允许变体答案"
+      ],
+      "all_sheets_rendered": true,
+      "visual_findings": []
+    },
+    "任务规格转化.xlsx": {
+      "sheet_count": 1,
+      "columns": 2,
+      "rows": 19,
+      "task_id": "notification_partition_retention_index_handover",
+      "forbidden_template_rows": [],
+      "all_sheets_rendered": true,
+      "visual_findings": []
+    }
+  },
+  "checks": {
+    "text_clipping": "PASS",
+    "header_contrast": "PASS",
+    "column_widths": "PASS",
+    "row_heights": "PASS",
+    "formula_errors": "PASS",
+    "unexpected_blank_pages": "PASS"
+  }
+}

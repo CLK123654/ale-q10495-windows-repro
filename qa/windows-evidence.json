@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "repository": "https://github.com/CLK123654/ale-q10495-windows-repro",
+  "commit": "304d5a46c276cfa946feac947cdd66a8b89ac5b3",
+  "run_id": "31616370826",
+  "runner": "Windows",
+  "psql_version": "psql (PostgreSQL) 17.10",
+  "server_version_num": "170010",
+  "real_postgresql": true,
+  "native_copy": true,
+  "unicode_space_directories": [
+    "D:\\a\\_temp\\通知中心 最终检查\\通知中心 一区",
+    "D:\\a\\_temp\\通知中心 最终检查\\通知中心 二区"
+  ],
+  "input_archive_unchanged": true,
+  "input_sources_unchanged": true,
+  "crlf_input_supported": true,
+  "reference_full_compare": true,
+  "reference_members": [
+    "reports/change_handover.json",
+    "reports/index_handover.csv",
+    "reports/partition_action_plan.csv",
+    "reports/tenant_retention_audit.csv",
+    "sql/repair_notification_partitions.sql"
+  ],
+  "valid_input_change": {
+    "exit_code": 0,
+    "archived_partitions": 4,
+    "retained_partitions": 3,
+    "child_indexes_attached": 4,
+    "legacy_indexes_removed": 2
+  },
+  "invalid_input": {
+    "exit_code": 3,
+    "output_absent": true
+  },
+  "catalog": {
+    "manifest_rows": 3,
+    "parent_index_valid": true,
+    "server_version_num": "170010",
+    "child_indexes_attached": 5,
+    "legacy_indexes_present": 0
+  },
+  "attachment_sha256": {
+    "输入数据包.zip": "33b6e39ead0e096531148bacb0cb1a0bdb72831a2c71ce071815c3bfdc0a8755",
+    "reference.zip": "281645feb66edcd341307439d9fb72fa21fd46967d29842585299bfc0d2b4b52",
+    "关键标准答案.xlsx": "5504aba40afbe04b5672b796892351ec90adcd84fe03ad9fbf87820a6db5b462",
+    "任务规格转化.xlsx": "f91839898599cbbfed3bc86a61eb8c744d11fbacbdd3e76e73ab67e18ecb642d"
+  }
+}

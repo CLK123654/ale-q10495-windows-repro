@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "reviewed_scope": [
+    "17字段自然语言",
+    "ALE作业表自然语言",
+    "输入ZIP全成员",
+    "Reference ZIP全成员",
+    "关键标准答案全单元格",
+    "任务规格全单元格",
+    "公开仓库候选可见文本与四附件"
+  ],
+  "natural_source_count": 261,
+  "violations": [],
+  "quote_count": 0,
+  "mixed_boundary_space_count": 0,
+  "forbidden_data_label_count": 0,
+  "internal_process_count": 0,
+  "ai_phrase_count": 0,
+  "controlled_enum_exemption": "Computing, Data & Mathematical Sciences 计算、数据与数学科学",
+  "environment_os_prefix_exemption": "操作系统： Windows11。",
+  "code_syntax_exemption": [
+    "SQL",
+    "JSON",
+    "PowerShell",
+    "CSV结构",
+    "命令",
+    "路径"
+  ],
+  "attachment_sha256": {
+    "输入数据包.zip": "10d6e4defa3d0761c8ab8db46a4c3bec315bfaeb47bf27639c131b757606514c",
+    "reference.zip": "281645feb66edcd341307439d9fb72fa21fd46967d29842585299bfc0d2b4b52",
+    "关键标准答案.xlsx": "5504aba40afbe04b5672b796892351ec90adcd84fe03ad9fbf87820a6db5b462",
+    "任务规格转化.xlsx": "83249c0ec77c3bc8ff56aeffe9e05dd9380ce665b0959e8ddb5705824c3ffeea"
+  },
+  "repo_mirror": {
+    "input_zip": true,
+    "reference_zip": true,
+    "answer_workbook": true,
+    "specification_workbook": true
+  },
+  "specification": {
+    "columns": 2,
+    "row_count": 19,
+    "task_id": "notification_partition_retention_index_handover",
+    "forbidden_template_rows": [],
+    "valid": true
+  }
+}

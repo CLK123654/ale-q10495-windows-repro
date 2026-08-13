@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "natural_sources": 228,
+  "violations": [],
+  "controlled_score_layer_exemption": [
+    "L2软件 / 工具操作层",
+    "L7产物结构 / Schema / 专业对象层",
+    "L8运行验证 / 可执行行为层",
+    "L10抗投机 / 反作弊层"
+  ],
+  "environment_valid": true,
+  "task_field_count": 17,
+  "field_contract": true,
+  "rubric": {
+    "item_count": 8,
+    "item_score_sum": 100,
+    "gate_count": 2,
+    "forbidden_score_format": false,
+    "items": [
+      {
+        "index": 1,
+        "title": "1. 交付结构与PostgreSQL Client执行链",
+        "points": 12,
+        "missing": [],
+        "priority": "Gate项",
+        "level": "L8"
+      },
+      {
+        "index": 2,
+        "title": "2. 输入原生载入与策略落库",
+        "points": 12,
+        "missing": [],
+        "priority": "Gate项",
+        "level": "L3"
+      },
+      {
+        "index": 3,
+        "title": "3. 分区保留与默认分区保护",
+        "points": 16,
+        "missing": [],
+        "priority": "高权重项",
+        "level": "L6"
+      },
+      {
+        "index": 4,
+        "title": "4. 部分索引定义与并发创建",
+        "points": 16,
+        "missing": [],
+        "priority": "高权重项",
+        "level": "L7"
+      },
+      {
+        "index": 5,
+        "title": "5. 父索引附着与旧索引处置",
+        "points": 16,
+        "missing": [],
+        "priority": "高权重项",
+        "level": "L8"
+      },
+      {
+        "index": 6,
+        "title": "6. 分区行动计划",
+        "points": 10,
+        "missing": [],
+        "priority": "高权重项",
+        "level": "L9"
+      },
+      {
+        "index": 7,
+        "title": "7. 租户保留审计",
+        "points": 10,
+        "missing": [],
+        "priority": "普通项",
+        "level": "L6"
+      },
+      {
+        "index": 8,
+        "title": "8. 变更交接记录与窗口信息",
+        "points": 8,
+        "missing": [],
+        "priority": "普通项",
+        "level": "L9"
+      }
+    ],
+    "valid": true
+  },
+  "answer_sheets": [
+    "交付物答案清单",
+    "固定字段答案",
+    "固定集合答案",
+    "固定数值答案",
+    "允许变体答案"
+  ],
+  "specification_sheets": [
+    "任务规格转化"
+  ],
+  "task_id": "notification_partition_retention_index_handover",
+  "workbook_contract": true,
+  "input_member_count": 17,
+  "forbidden_input_entries": [],
+  "input_contract": true,
+  "humanizer_score": 48,
+  "environment_humanizer_score": 49,
+  "prompt_score_coverage": "PASS",
+  "online_ai_detector_used_as_conclusion": false
+}

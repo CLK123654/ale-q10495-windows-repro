@@ -1,4 +1,4 @@
-阅读README、保留策略、分区库存、租户容量和事件样本，核对日期、状态与容量口径。
+阅读README、保留策略、分区库存、租户容量和通知事件记录，核对日期、状态与容量口径。
 运行load_inputs.ps1并用psql的\copy载入三份CSV，建立月分区、默认分区和库存对象。
 查询pg_inherits和默认分区，按策略边界生成分区脱离与回挂语句。
 逐条提交DETACH PARTITION CONCURRENTLY，登记归档位置并核对最终父子关系。

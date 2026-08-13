@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "skill": "humanizer-zh",
+  "result": "PASS",
+  "score": {
+    "business_specificity": 10,
+    "action_verifiability": 10,
+    "natural_language": 9,
+    "contextual_coherence": 10,
+    "restraint": 9,
+    "total": 48
+  },
+  "environment_score": {
+    "business_specificity": 10,
+    "natural_language": 9,
+    "non_templated_dependencies": 10,
+    "restraint": 10,
+    "format_compliance": 10,
+    "total": 49
+  },
+  "reviewed_scopes": [
+    "任务名称",
+    "任务概要",
+    "任务prompt",
+    "关键动作",
+    "评分表",
+    "环境依赖",
+    "软件步骤",
+    "输入材料中的自然语言",
+    "Reference中的用户可见文字",
+    "关键标准答案工作簿全部自然语言",
+    "任务规格工作簿全部自然语言"
+  ],
+  "scores": {
+    "直接性": 10,
+    "节奏": 9,
+    "信任度": 10,
+    "真实性": 10,
+    "精炼度": 9,
+    "total": 48
+  },
+  "minimum_total": 45,
+  "notes": [
+    "任务从通知平台低峰变更窗口切入，容量值班、DBA、合规人员和变更负责人分别消费对应交付。",
+    "策略日期、窗口、等待预算、索引列和容量均来自可见输入，没有无来源数字。",
+    "PostgreSQL原生载入、分区脱离、索引接管、catalog查询和报告导出形成连续工作链。",
+    "已清理不符合真实业务来源的数据称谓和内部过程口吻，保留数据库业务所需的精确说明。",
+    "线上AI检测未用于本次结论。"
+  ],
+  "reviewed_artifacts_sha256": {
+    "任务概要.txt": "966bc56e4396f9910a5da8d3c09c027d229cda8c06bfbc3bd97addd554beb98f",
+    "任务prompt.txt": "94fe138c0d95264398a89877765f24fbb5e4afb621473c623efc3661df00c326",
+    "关键动作.txt": "2b67c1f2e3a85fa6b0164a1567a2689c9361c456d764d2598f832da19ba6ff66",
+    "评分表.txt": "153b6053d663ee0e14a7f7075d7f8a49084e7df08bc36a2da122c262c4a6efbc",
+    "环境依赖.txt": "1af3ee13393c2b8eee1f1e50e78c1ff07b369e644dbc58db9e667304d990f448",
+    "相关专业软件的关键步骤.txt": "cf65b68c1144c7a515253c0f55ff6f732724eb9f3bc79d053b5b358803c0596b",
+    "任务名称.txt": "12c6fbe80c62ccc41f967abaa31c15992c0009cc7ad626bd4cda521424e38ff9",
+    "task_fields.json": "4bef9a63347f86508b4c9107b5c05bcbc6b1e1e90c715060e9cd648431a53670",
+    "ALE-专家数据作业表.csv": "ff25b394d6b1854373e13fa4b142e02898f78a1f36d7ba863c156b1dc5a8c01f",
+    "输入数据包.zip": "10d6e4defa3d0761c8ab8db46a4c3bec315bfaeb47bf27639c131b757606514c",
+    "reference.zip": "281645feb66edcd341307439d9fb72fa21fd46967d29842585299bfc0d2b4b52",
+    "关键标准答案.xlsx": "5504aba40afbe04b5672b796892351ec90adcd84fe03ad9fbf87820a6db5b462",
+    "任务规格转化.xlsx": "83249c0ec77c3bc8ff56aeffe9e05dd9380ce665b0959e8ddb5705824c3ffeea"
+  },
+  "online_ai_detection_used_as_conclusion": false
+}

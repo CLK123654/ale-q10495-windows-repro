@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "result": "PASS_WITH_DOCUMENTED_LEGACY_MISMATCH",
+  "validate_ai_review_risk": {
+    "result": "PASS",
+    "score": 2,
+    "clusters": 0,
+    "manual_followup": "人工审查确认5项交付各有明确业务消费者，文件名与输入名用于定位必需材料，未形成判卷性产物膨胀"
+  },
+  "validate_task_contract": {
+    "result": "EXPECTED_LEGACY_MISMATCH",
+    "message": "任务规格转化.xlsx公共收尾模块或顺序错误：实现边界、交接材料、操作边界",
+    "reason": "现行用户规则要求删除完成条件、可验证点和不适合作为评分点的内容等模板行。旧版验证器仍强制这三行，与当前精确规则冲突。",
+    "current_contract": {
+      "columns": 2,
+      "rows": 19,
+      "task_id": "notification_partition_retention_index_handover",
+      "forbidden_template_rows": [],
+      "semantic_audit": "PASS",
+      "visual_review": "PASS"
+    },
+    "decision": "保留当前业务规格，不为过时验证器恢复模板行"
+  }
+}

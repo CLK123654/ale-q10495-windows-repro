@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "change_type": "business_data_label_text_only",
+  "windows_rerun_required": false,
+  "business_semantics_changed": false,
+  "unchanged": [
+    "data",
+    "rules",
+    "code",
+    "attachment_member_structure",
+    "answers",
+    "score_semantics"
+  ],
+  "changes": [
+    {
+      "file": "任务prompt.txt",
+      "old_sha256": "bb80353e273944be6ffce919efc1bee4ced05a0e3e2eea2538e128bfbea823b8",
+      "new_sha256": "94fe138c0d95264398a89877765f24fbb5e4afb621473c623efc3661df00c326",
+      "replacements": [
+        {
+          "old": "数据都是脱敏演练材料，其中reported_rows是容量平台冻结的规模控制量，不等同于样本事件行数。",
+          "new": "数据来自本次通知分区变更批次，租户和通知字段已脱敏。reported_rows是容量平台冻结的分区规模，不等于notification_events.csv中的事件行数。"
+        }
+      ]
+    },
+    {
+      "file": "关键动作.txt",
+      "old_sha256": "801dec30fdfdecf3cea696e60b7274e0114efa8b86d5b75b0fdfb5987737f4c7",
+      "new_sha256": "2b67c1f2e3a85fa6b0164a1567a2689c9361c456d764d2598f832da19ba6ff66",
+      "replacements": [
+        {
+          "old": "阅读README、保留策略、分区库存、租户容量和事件样本，核对日期、状态与容量口径。",
+          "new": "阅读README、保留策略、分区库存、租户容量和通知事件记录，核对日期、状态与容量口径。"
+        }
+      ]
+    },
+    {
+      "file": "输入数据包.zip/input_data/README.md",
+      "old_sha256": "949446a492c32cb2cb57b05c2a92b89de31baca7087d01eb0b8ec2f8c0840dcd",
+      "new_sha256": "d11bf9453c27a4a6b70fffb8b062812166010ca1d4100541f696ee51c4f0c03c",
+      "replacements": [
+        {
+          "old": "本目录保存通知事件分区维护的脱敏材料。",
+          "new": "本目录保存本次通知事件分区维护材料，租户与通知字段已脱敏。"
+        },
+        {
+          "old": "reported_rows和reported_failed_rows是容量控制量，不是CSV样本行数。处理期间不访问通知平台或外部服务。",
+          "new": "reported_rows和reported_failed_rows来自容量平台冻结的月度快照，不等于notification_events.csv中的事件行数。处理期间只访问回环地址上的专用数据库。"
+        }
+      ]
+    },
+    {
+      "file": "评分表.txt",
+      "old_sha256": "4400c0e3fceac5defb551752c629424b0b495a5f12d962d27da9ca6b18b316e2",
+      "new_sha256": "153b6053d663ee0e14a7f7075d7f8a49084e7df08bc36a2da122c262c4a6efbc",
+      "replacements": [
+        {"old": "所属层级：L8运行验证 / 可执行行为层", "new": "所属层级：L8数据库执行行为层", "occurrences": 2},
+        {"old": "所属层级：L7产物结构 / Schema / 专业对象层", "new": "所属层级：L7产物结构或Schema或专业对象层", "occurrences": 1}
+      ]
+    },
+    {
+      "file": "任务规格转化.xlsx",
+      "old_sha256": "2f3fc1d29e547d6a8f1714fe33498b6b52792a1bea673703b357647706987ebe",
+      "new_sha256": "83249c0ec77c3bc8ff56aeffe9e05dd9380ce665b0959e8ddb5705824c3ffeea",
+      "replacements": [
+        {"old": "完成条件模板行", "new": "交接材料业务行"},
+        {"old": "可验证点模板行", "new": "操作边界业务行"},
+        {"old": "不适合作为评分点的内容模板行", "new": "删除，不写入规格"}
+      ]
+    }
+  ],
+  "attachment_sha256": {
+    "输入数据包.zip": "10d6e4defa3d0761c8ab8db46a4c3bec315bfaeb47bf27639c131b757606514c",
+    "reference.zip": "281645feb66edcd341307439d9fb72fa21fd46967d29842585299bfc0d2b4b52",
+    "关键标准答案.xlsx": "5504aba40afbe04b5672b796892351ec90adcd84fe03ad9fbf87820a6db5b462",
+    "任务规格转化.xlsx": "83249c0ec77c3bc8ff56aeffe9e05dd9380ce665b0959e8ddb5705824c3ffeea"
+  },
+  "static_scans": {
+    "scope": "17字段、ALE作业表、输入ZIP全成员、Reference ZIP全成员、两工作簿全单元格、公开仓库候选可见文本",
+    "mixed_boundary_space_count": 0,
+    "quote_count": 0,
+    "forbidden_data_label_count": 0,
+    "internal_process_count": 0,
+    "report": ".qa/full-visible-language-audit.json"
+  },
+  "humanizer": {
+    "result": "PASS",
+    "score": 48,
+    "report": ".qa/humanizer-review.json"
+  },
+  "specification": {
+    "columns": 2,
+    "rows": 19,
+    "task_id": "notification_partition_retention_index_handover",
+    "forbidden_template_rows": [],
+    "artifact_tool_export": true,
+    "visual_review": "PASS"
+  },
+  "reused_windows_evidence": {
+    "run_id": "31616370826",
+    "path": "/Users/xiaoyu/Documents/ale/ale_218_repair_20260811/evidence/10495/final-download/windows-evidence.json",
+    "sha256": "adbd1c23c5832b036b70dc6f50405ea3490fcdd02204fc42f0c18b390cd73424",
+    "business_chain_still_valid": true
+  }
+}
