@@ -1,4 +1,4 @@
-操作系统： Windows11。
+操作系统： Windows11、macOS或主流64位Linux。
 
 主软件使用PostgreSQL Client17.x或18.x的psql.exe连接同主版本的本机PostgreSQL服务，完成\copy、分区DDL、并发索引、父子索引附着以及pg_class、pg_namespace、pg_inherits、pg_index和pg_indexes查询。PowerShell7负责读取策略、组织路径、调用psql并写出查询结果。
 

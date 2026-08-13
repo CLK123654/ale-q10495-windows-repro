@@ -18,7 +18,7 @@
   "internal_process_count": 0,
   "ai_phrase_count": 0,
   "controlled_enum_exemption": "Computing, Data & Mathematical Sciences 计算、数据与数学科学",
-  "environment_os_prefix_exemption": "操作系统： Windows11。",
+  "environment_os_prefix_exemption": "操作系统： Windows11、macOS或主流64位Linux。",
   "code_syntax_exemption": [
     "SQL",
     "JSON",
