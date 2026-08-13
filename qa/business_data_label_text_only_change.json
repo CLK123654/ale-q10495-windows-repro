@@ -55,7 +55,7 @@
       "old_sha256": "4400c0e3fceac5defb551752c629424b0b495a5f12d962d27da9ca6b18b316e2",
       "new_sha256": "153b6053d663ee0e14a7f7075d7f8a49084e7df08bc36a2da122c262c4a6efbc",
       "replacements": [
-        {"old": "所属层级：L8运行验证 / 可执行行为层", "new": "所属层级：L8数据库执行行为层", "occurrences": 2},
+        {"old": "所属层级：L8运行验证 / 可执行行为层", "new": "所属层级：L8运行验证或可执行行为层", "occurrences": 2},
         {"old": "所属层级：L7产物结构 / Schema / 专业对象层", "new": "所属层级：L7产物结构或Schema或专业对象层", "occurrences": 1}
       ]
     },
@@ -68,6 +68,16 @@
         {"old": "可验证点模板行", "new": "操作边界业务行"},
         {"old": "不适合作为评分点的内容模板行", "new": "删除，不写入规格"}
       ]
+    },
+    {
+      "file": "环境依赖.txt",
+      "replacements": [
+        {
+          "old": "操作系统： Windows11。",
+          "new": "操作系统： Windows11、macOS或主流64位Linux。"
+        }
+      ],
+      "business_semantics_changed": false
     }
   ],
   "attachment_sha256": {
